@@ -23,7 +23,8 @@ def login():
             return f"SQL Error: {str(e)}"
 
         if result:
-            message = "Welcome!"
+            flag = cursor.execute("SELECT value FROM flag").fetchone()[0]
+            message = flag
         else:
             message = "Login failed."
 
